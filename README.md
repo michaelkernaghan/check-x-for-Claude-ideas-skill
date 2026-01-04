@@ -1,14 +1,24 @@
-# X Claude Ideas Scanner
+# Claude Ideas Scanner
 
-A Claude Code skill that searches X (Twitter) for the latest Claude Code posts, evaluates them for actionable ideas, and offers to implement them.
+A Claude Code skill that searches X (Twitter) and Reddit for the latest Claude Code posts, evaluates them for actionable ideas, and offers to implement them.
 
 ## What It Does
 
-1. Opens X.com in Chrome (via Claude Code's browser automation)
-2. Searches for "claude code" posts (latest)
+1. Opens X.com and Reddit in Chrome (via Claude Code's browser automation)
+2. Searches for "claude code" posts on both platforms
 3. Analyzes posts for actionable tips and ideas
-4. Presents findings categorized by type
+4. Presents findings categorized by source and type
 5. Offers to implement selected ideas directly
+
+## Sources Checked
+
+**X (Twitter)**
+- Latest posts matching search query
+
+**Reddit**
+- r/ClaudeAI - Main Claude community
+- r/LocalLLaMA - Technical discussions
+- r/ChatGPTCoding - Coding workflows
 
 ## Example Ideas It Looks For
 
@@ -17,6 +27,7 @@ A Claude Code skill that searches X (Twitter) for the latest Claude Code posts, 
 - New features or flags to try
 - Performance tips (context management)
 - Integration ideas
+- "Pro tip" and "TIL" posts
 
 ## Prerequisites
 
@@ -43,7 +54,7 @@ cp check-x-for-Claude-ideas-skill/SKILL.md ~/.claude/skills/x-claude-ideas/
 ## Usage
 
 ```
-/x-claude-ideas              # Search for "claude code" posts
+/x-claude-ideas              # Search X and Reddit for "claude code" posts
 /x-claude-ideas tips         # Search for "claude code tips"
 /x-claude-ideas mcp          # Search for "claude code mcp"
 /x-claude-ideas hooks        # Search for "claude code hooks"
@@ -52,14 +63,23 @@ cp check-x-for-Claude-ideas-skill/SKILL.md ~/.claude/skills/x-claude-ideas/
 ## Output Example
 
 ```
-## X Claude Ideas Scan Results
+## Claude Ideas Scan Results
 
-### Actionable Ideas Found
+### From X (Twitter)
 
+#### Actionable Ideas Found
 1. **Activity Page for Context Costs** - @codewithimanshu
    - What: Use the Activity page to monitor token usage
    - How to implement: Add monitoring rule to CLAUDE.md
    - Effort: Low
+
+### From Reddit
+
+#### Actionable Ideas Found
+1. **Custom Hooks for Git Safety** - u/example (r/ClaudeAI, 42 upvotes)
+   - What: Pre-commit hooks to prevent accidental pushes
+   - How to implement: Add hook script to .claude/hooks/
+   - Effort: Medium
 
 ### Would you like me to implement any of these?
 ```
